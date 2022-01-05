@@ -10,8 +10,10 @@ public class num1065 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.println(han(Integer.parseInt(br.readLine())));
+
+		
 	}
-	
+
 	public static int han(int N) {
 		int count = 0;
 		
