@@ -13,7 +13,6 @@ public class mergesort {
 		printArray(src);
 	}
 
-
 	public static void mergeSort(int start, int end) {
 		if(start<end) {
 			int mid = (start + end) / 2;
