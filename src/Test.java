@@ -1,7 +1,7 @@
 public class Test {
     public static void main(String[] args) {
-        int[] ary = new int[]{1, 2, 3, 4};
+        String str = "A";
 
-
+        System.out.println(str.charAt(0) - 65);
     }
 }
