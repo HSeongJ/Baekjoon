@@ -1,10 +1,7 @@
-import java.util.Arrays;
-
 public class Test {
     public static void main(String[] args) {
-        char[] test = new char[]{'A', '1'};
-        char[] test2 = new char[]{'B', '1'};
+        int[] ary = new int[]{1, 2, 3, 4};
 
-        System.out.println(test[0] == 65);
+
     }
 }

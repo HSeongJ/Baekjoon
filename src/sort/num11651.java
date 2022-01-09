@@ -29,7 +29,6 @@ public class num11651 {
 					return Integer.compare(o1[1], o2[1]);
 				}
 			}
-			
 		});
 		
 		for(int i = 0; i < N; i++) {
