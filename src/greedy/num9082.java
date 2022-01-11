@@ -2,6 +2,8 @@ package greedy;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class num9082 {
     static int count1;
@@ -23,20 +25,73 @@ public class num9082 {
             for (int i = 0; i < N; i++) {
                 num[i] = num_str.charAt(i) - '0';
                 bomb[i] = bomb_str.charAt(i);
+            }
+
+            if(num[0] == 0) {
+                bomb[0] = 'X';
+                bomb[1] = 'X';
+                findBomb(num, bomb);
+            } else if(num[0] == 2) {
+                bomb[0] = '*';
+                bomb[1] = '*';
+                findBomb(num, bomb);
+            } else {
+                bomb[0] = '*';
+                bomb[1] = 'X';
+                if(!findBomb(num, bomb)) { //
+                    bomb[0] = 'X';
+                    bomb[1] = '*';
+                    findBomb(num, bomb);
+                }
+            }
+
+            for(int i = 0; i < N; i++) {
                 if(bomb[i] == '*') result++;
             }
 
-
+            System.out.println(result);
         }
-
         br.close();
     }
 
-    public static void checkCh(char ch) {
-        if(ch == '#') {
-            count1++;
-        } else if(ch == '*') {
-            count2++;
+    public static boolean findBomb(int[] num, char[] bomb) {
+        for(int i = 1; i < num.length - 1; i++) {
+            int count1 = 0; //count #
+            int count2 = 0; //count *
+
+            for(int j = -1; j < 1; j++) {
+                if(bomb[i + j] == '#') {
+                    count1++;
+                } else if(bomb[i + j] == '*') {
+                    count2++;
+                }
+            }
+
+            if(num[i] - count2 == 0) {
+                bomb[i + 1] = 'X';
+            } else {
+                bomb[i + 1] = '*';
+            }
         }
+
+        //check
+        boolean check = true;
+        for(int i = 0; i < num.length; i++) {
+            int start_check = 0; //check *
+            for(int j = -1; j < 2; j++) {
+                try {
+                    if(bomb[i + j] == '*') {
+                        start_check++;
+                    }
+                } catch (Exception e) {}
+            }
+            if(num[i] == start_check) {
+                continue;
+            } else {
+                check = false;
+                return check;
+            }
+        }
+        return check;
     }
 }
