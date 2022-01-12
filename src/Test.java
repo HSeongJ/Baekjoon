@@ -1,7 +1,37 @@
+import java.util.PriorityQueue;
+
 public class Test {
     public static void main(String[] args) {
-        String str = "A";
+        PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
 
-        System.out.println(str.charAt(0) - 65);
+        Person p1 = new Person(10, "jang");
+        Person p2 = new Person(11, "Heo");
+        Person p3 = new Person(11, "park");
+        Person p4 = new Person(9, "choi");
+        Person p5 = new Person(8, "seo");
+        priorityQueue.offer(p1);
+        priorityQueue.offer(p2);
+        priorityQueue.offer(p3);
+        priorityQueue.offer(p4);
+        priorityQueue.offer(p5);
+
+        System.out.println(priorityQueue.size());
+        while(!priorityQueue.isEmpty()) {
+            System.out.println(priorityQueue.poll().age);
+        }
+    }
+    private static class Person implements Comparable<Person> {
+        int age;
+        String name;
+
+        Person(int age, String name) {
+            this.age = age;
+            this.name = name;
+        }
+
+        @Override
+        public int compareTo(Person o) {
+            return o.age - this.age;
+        }
     }
 }
