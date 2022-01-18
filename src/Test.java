@@ -1,16 +1,19 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class Test {
     public static void main(String[] args) throws Exception{
 
-        int num;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<Integer> ary = new ArrayList<>();
+        ArrayList<Integer> ary2 = new ArrayList<>();
 
-        String str = br.readLine();
-        System.out.println(str);
-        br.close();
+        ary.add(10);
 
+        ary2 = (ArrayList<Integer>) ary.clone();
+        ary.add(20);
+        ary.add(30);
+        System.out.println(ary2.toString());
     }
 }
