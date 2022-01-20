@@ -8,6 +8,6 @@ public class Test {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         long test = 250000000000000L;
-        System.out.println(Math.pow(0, 0));
+        System.out.println(Math.pow(0, 0) + '\n');
     }
 }
